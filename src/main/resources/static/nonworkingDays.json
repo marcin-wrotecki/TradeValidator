@@ -1,0 +1,68 @@
+[
+	{
+		"currency": "EUR",
+		"nonWorkingDay": [
+			{
+				"day": 15,
+				"month": 3
+			},
+			{
+				"day": 18,
+				"month": 3
+			},
+			{
+				"day": 26,
+				"month": 11
+			}
+		]
+	},
+	{
+		"currency": "USD",
+		"nonWorkingDay": [
+			{
+				"day": 17,
+				"month": 0
+			},
+			{
+				"day": 21,
+				"month": 1
+			},
+			{
+				"day": 15,
+				"month": 3
+			},
+			{
+				"day": 30,
+				"month": 4
+			},
+			{
+				"day": 20,
+				"month": 5
+			},
+			{
+				"day": 4,
+				"month": 6
+			},
+			{
+				"day": 5,
+				"month": 8
+			},
+			{
+				"day": 10,
+				"month": 9
+			},
+			{
+				"day": 11,
+				"month": 10
+			},
+			{
+				"day": 24,
+				"month": 10
+			},
+			{
+				"day": 26,
+				"month": 11
+			}
+		]
+	}
+]
