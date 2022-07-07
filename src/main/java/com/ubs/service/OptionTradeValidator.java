@@ -15,7 +15,6 @@ public class OptionTradeValidator implements Validator {
 	private StyleRepository styleRepository;
 
 	public OptionTradeValidator(ValidationProperties validationProperties, StyleRepository styleRepository) {
-		super();
 		this.validationProperties = validationProperties;
 		this.styleRepository = styleRepository;
 	}
