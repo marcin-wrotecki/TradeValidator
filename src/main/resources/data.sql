@@ -1,3 +1,8 @@
+DELETE FROM legalentities;
+DELETE FROM styles;
+DELETE FROM counterparties;
+DELETE FROM isoCodes;
+
 INSERT INTO
     legalentities(entity)
 VALUES
