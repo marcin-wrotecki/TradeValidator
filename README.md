@@ -3,24 +3,26 @@
 The main purpose of the application is to validate the trades for the FOREX transactions = FX Spot, Forward, Options. <br />
 
 <h2>Endpoints</h2>
-<strong>/trade/validate</strong> - validates FX Spot or FX Forward trade   <br />
-Example input:   <br />
-{   <br />
-"customer": "YODA1",   <br />
-"ccyPair": "EURUSD",   <br />
-"type": "Spot",   <br />
-"direction": "BUY",   <br />
-"tradeDate": "2020-08-11",   <br />
-"amount1": 1000000.00,   <br />
-"amount2": 1120000.00,   <br />
-"rate": 1.12,   <br />
-"valueDate": "2020-08-15",   <br />
-"legalEntity": "UBS AG",   <br />
-"trader": "Josef Schoenberger"   <br />
+<strong>/swagger-ui/#/</strong> - online documentation of the REST API exposed by the service <br />
+<strong>/actuator/metrics</strong> - performance metrics of the application <br />
+<strong>/trade/validate</strong> - validates FX Spot or FX Forward trade <br />
+Example input: <br />
+{ <br />
+"customer": "YODA1", <br />
+"ccyPair": "EURUSD", <br />
+"type": "Spot", <br />
+"direction": "BUY", <br />
+"tradeDate": "2020-08-11", <br />
+"amount1": 1000000.00, <br />
+"amount2": 1120000.00, <br />
+"rate": 1.12, <br />
+"valueDate": "2020-08-15", <br />
+"legalEntity": "UBS AG", <br />
+"trader": "Josef Schoenberger" <br />
 } <br />
- <br />
-<strong>/trades/validate</strong> - validates collection of FX Spot or FX Forward trades   <br />
-Example input:   <br />
+<br />
+<strong>/trades/validate</strong> - validates collection of FX Spot or FX Forward trades <br />
+Example input: <br />
 [ <br />
 {
 "customer": "YODA1", <br />
