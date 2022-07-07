@@ -32,6 +32,7 @@ public class ValidationProperties {
 
 	private List<CurrencyInfo> nonWorkingDays = null;
 
+	//simulation of real API 
 	@EventListener(ApplicationReadyEvent.class)
 	private void loadNonworkingDays() {
 		try (var content = resourceFile.getInputStream()) {
