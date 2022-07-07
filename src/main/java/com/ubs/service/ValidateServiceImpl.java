@@ -39,10 +39,7 @@ public class ValidateServiceImpl implements ValidateService {
 
 	@Override
 	public ResponseEntity<?> validate(Trade trade, Errors errors) {
-		tradeValidator.validate(trade, errors);
-		if (validationProperties.OPTION_TYPE.equalsIgnoreCase(trade.getType())) {
-			optionTradeValidator.validate(trade, errors);
-		}
+		runValidation(trade, errors);
 		if (errors.hasErrors()) {
 			var errorWrapper = errorService.wrapError(trade, errors);
 			log.info(errorWrapper.toString());
@@ -57,13 +54,9 @@ public class ValidateServiceImpl implements ValidateService {
 		List<ErrorWrapper<Trade>> errorWrappers = new LinkedList<>();
 		int index = 0;
 		for (var trade : trades) {
-			Errors errors = new BindException(trade, "trade_" + index++);
-			Set<ConstraintViolation<Trade>> violations = validator.validate(trade);
-			convertConstraintViolationsToErrors(violations, errors);
-			tradeValidator.validate(trade, errors);
-			if (validationProperties.OPTION_TYPE.equalsIgnoreCase(trade.getType())) {
-				optionTradeValidator.validate(trade, errors);
-			}
+			//run default validator
+			Errors errors = getJavaValidationApiErrors(trade, index++);
+			runValidation(trade, errors);
 			if (errors.hasErrors()) {
 				errorWrappers.add(errorService.wrapError(trade, errors));
 			}
@@ -76,10 +69,24 @@ public class ValidateServiceImpl implements ValidateService {
 		return ResponseEntity.ok().body("JSONs are valid");
 	}
 
-	private void convertConstraintViolationsToErrors(Set<ConstraintViolation<Trade>> violations, Errors error) {
-		for (var el : violations) {
-			error.rejectValue(el.getPropertyPath().toString(), el.getMessage());
+	private void runValidation(Trade trade, Errors errors) {
+		tradeValidator.validate(trade, errors);
+		validateOptionType(trade, errors);
+	}
+
+	private void validateOptionType(Trade trade, Errors errors) {
+		if (validationProperties.OPTION_TYPE.equalsIgnoreCase(trade.getType())) {
+			optionTradeValidator.validate(trade, errors);
 		}
+	}
+
+	private Errors getJavaValidationApiErrors(Trade trade, int index) {
+		Errors errors = new BindException(trade, "trade_" + index++);
+		Set<ConstraintViolation<Trade>> violations = validator.validate(trade);
+		for (var el : violations) {
+			errors.rejectValue(el.getPropertyPath().toString(), el.getMessage());
+		}
+		return errors;
 	}
 
 }
