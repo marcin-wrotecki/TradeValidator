@@ -65,11 +65,11 @@ public class OptionTradeValidator implements Validator {
 			return;
 		}
 
-		if (trade.getExpiryDate() != null && !trade.getDeliveryDate().isBefore(trade.getExpiryDate())) {
+		if (trade.getExpiryDate() != null && !trade.getExpiryDate().isBefore(trade.getDeliveryDate())) {
 			errors.rejectValue("expiryDate", "expiryDate should be before delivery date");
 		}
 
-		if (trade.getPremiumDate() != null && !trade.getPremiumDate().isBefore(trade.getExpiryDate())) {
+		if (trade.getPremiumDate() != null && !trade.getPremiumDate().isBefore(trade.getDeliveryDate())) {
 			errors.rejectValue("premiumDate", "premiumDate should be before delivery date");
 		}
 	}
