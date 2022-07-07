@@ -44,17 +44,18 @@ public class OptionTradeValidator implements Validator {
 			return;
 		}
 
-		if (trade.getExerciseStartDate() == null) {
-			errors.rejectValue("exerciseStartDate", "exerciseStartDate for American style cannot be null");
+		if (trade.getExcerciseStartDate() == null) {
+			errors.rejectValue("excerciseStartDate", "excerciseStartDate for American style cannot be null");
+			return;
 		}
 
-		if (trade.getTradeDate() != null && !trade.getExerciseStartDate().isAfter(trade.getTradeDate())) {
-			errors.rejectValue("exerciseStartDate", "exerciseStartDate for American style should be after trade date");
+		if (trade.getTradeDate() != null && !trade.getExcerciseStartDate().isAfter(trade.getTradeDate())) {
+			errors.rejectValue("excerciseStartDate", "excerciseStartDate for American style should be after trade date");
 		}
 
-		if (trade.getExpiryDate() != null && !trade.getExerciseStartDate().isBefore(trade.getExpiryDate())) {
-			errors.rejectValue("exerciseStartDate",
-					"exerciseStartDate for American style should be before expiry date");
+		if (trade.getExpiryDate() != null && !trade.getExcerciseStartDate().isBefore(trade.getExpiryDate())) {
+			errors.rejectValue("excerciseStartDate",
+					"excerciseStartDate for American style should be before expiry date");
 		}
 	}
 

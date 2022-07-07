@@ -51,4 +51,5 @@ public class TransactionController {
 	public ResponseEntity<?> validateOptionTrades(@RequestBody List<@Valid OptionTrade> trades) {
 		return validateService.validate(trades);
 	}
+	
 }

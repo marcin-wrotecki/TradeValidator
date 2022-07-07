@@ -38,5 +38,5 @@ public class OptionTrade extends Trade {
 	@NotNull
 	private LocalDate premiumDate;
 	
-	private LocalDate exerciseStartDate;
+	private LocalDate excerciseStartDate;
 }
