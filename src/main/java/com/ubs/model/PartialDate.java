@@ -9,7 +9,7 @@ import lombok.Data;
 public class PartialDate {
 	private Month month;
 	private int day;
-	
+
 	public boolean compareTo(LocalDate localDate) {
 		return localDate.getMonth() == month && localDate.getDayOfMonth() == day;
 	}

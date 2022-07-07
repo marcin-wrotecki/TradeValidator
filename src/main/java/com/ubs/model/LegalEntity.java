@@ -9,11 +9,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="legalentities")
+@Table(name = "legalentities")
 public class LegalEntity {
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
 	private String entity;
 }

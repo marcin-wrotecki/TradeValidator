@@ -146,9 +146,7 @@ public class TradeValidator implements Validator {
 		// TODO check holidays
 		long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
 
-		return Stream.iterate(startDate, date -> date.plusDays(1))
-				.limit(daysBetween)
-				.filter(isWeekend.negate())
+		return Stream.iterate(startDate, date -> date.plusDays(1)).limit(daysBetween).filter(isWeekend.negate())
 				.count();
 	}
 

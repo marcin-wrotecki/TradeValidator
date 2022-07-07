@@ -20,7 +20,7 @@ public class Trade {
 
 	@NotBlank
 	@NotNull
-	@Size(min = 3, max=6)
+	@Size(min = 3, max = 6)
 	private String ccyPair;
 
 	@NotBlank
@@ -45,7 +45,7 @@ public class Trade {
 
 	@NotNull
 	@JsonProperty("valueDate")
-	@JsonAlias("deliveryDate")	
+	@JsonAlias("deliveryDate")
 	private LocalDate deliveryDate;
 
 	@NotBlank

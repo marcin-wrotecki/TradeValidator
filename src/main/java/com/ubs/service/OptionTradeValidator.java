@@ -50,7 +50,8 @@ public class OptionTradeValidator implements Validator {
 		}
 
 		if (trade.getTradeDate() != null && !trade.getExcerciseStartDate().isAfter(trade.getTradeDate())) {
-			errors.rejectValue("excerciseStartDate", "excerciseStartDate for American style should be after trade date");
+			errors.rejectValue("excerciseStartDate",
+					"excerciseStartDate for American style should be after trade date");
 		}
 
 		if (trade.getExpiryDate() != null && !trade.getExcerciseStartDate().isBefore(trade.getExpiryDate())) {

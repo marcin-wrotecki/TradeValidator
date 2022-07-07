@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="isocodes")
+@Table(name = "isocodes")
 public class IsoCode {
 	@Id
 	private int id;

@@ -17,18 +17,14 @@ public class SwaggerConfig {
 
 	@Bean
 	public Docket get() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.ubs.controller"))
-				.build().apiInfo(createApiInfo());
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.ubs.controller")).build().apiInfo(createApiInfo());
 	}
-	
+
 	private ApiInfo createApiInfo() {
-		return new ApiInfoBuilder()
-				.title("Trades API")
-				.description("The app that allows you to validate FX trades")
-				.version("1.0.0")
-				.contact(new Contact("Marcin Wrotecki", "\"https://github.com/marcin-wrotecki\"", "marcin.wrotecki@gft.com"))
-				.license("My own license")
-				.build();
-}	}
+		return new ApiInfoBuilder().title("Trades API").description("The app that allows you to validate FX trades")
+				.version("1.0.0").contact(new Contact("Marcin Wrotecki", "\"https://github.com/marcin-wrotecki\"",
+						"marcin.wrotecki@gft.com"))
+				.license("My own license").build();
+	}
+}
