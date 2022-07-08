@@ -54,7 +54,7 @@ public class ValidateServiceImpl implements ValidateService {
 		List<ErrorWrapper<Trade>> errorWrappers = new LinkedList<>();
 		int index = 0;
 		for (var trade : trades) {
-			//runs default validator
+			// runs default validator
 			Errors errors = getJavaValidationApiErrors(trade, index++);
 			runValidation(trade, errors);
 			if (errors.hasErrors()) {
