@@ -75,11 +75,12 @@ public class TradeValidator implements Validator {
 	private void validateCurrencyNonWorkingDay(Trade trade, Errors errors, String currency) {
 		Optional<CurrencyInfo> currencyInfo = validationProperties.getNonWorkingDays().stream()
 				.filter(el -> el.getCurrency().equalsIgnoreCase(currency)).findFirst();
-		if (currencyInfo.isPresent()) {
-			if (currencyInfo.get().getNonWorkingDay().stream().anyMatch(el -> el.compareTo(trade.getDeliveryDate()))) {
-				errors.rejectValue("deliveryDate", "Delivery|Value date falls on nonworking day for " + currency);
-			}
+
+		if (currencyInfo.isPresent() && currencyInfo.get().getNonWorkingDay().stream()
+				.anyMatch(el -> el.compareTo(trade.getDeliveryDate()))) {
+			errors.rejectValue("deliveryDate", "Delivery|Value date falls on nonworking day for " + currency);
 		}
+
 	}
 
 	private void validateCustomer(Trade trade, Errors errors) {
