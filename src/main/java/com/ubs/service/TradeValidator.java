@@ -20,6 +20,7 @@ import com.ubs.repository.LegalEntityRepository;
 
 @Service
 public class TradeValidator implements Validator {
+
 	private ValidationProperties validationProperties;
 	private CounterpartyRepository counterpartyRepository;
 	private IsoCodeRepository isoCodeRepository;

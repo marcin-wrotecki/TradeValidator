@@ -18,15 +18,18 @@ public class ErrorServiceImpl implements ErrorService {
 		ErrorWrapper<T> errorWrapper = new ErrorWrapper<>();
 		errorWrapper.setTrade(trade);
 		Map<String, String> fieldErrors = errorWrapper.getFieldErrors();
-		for (var el : list) {
-			if (fieldErrors.containsKey(el.getField())) {
-				String err = fieldErrors.get(el.getField()) + ", " + el.getCode();
-				fieldErrors.put(el.getField(), err);
-			} else {
-				fieldErrors.put(el.getField(), el.getCode());
-			}
+		for (var error : list) {
+			addErrorToMap(fieldErrors, error);
 		}
 		return errorWrapper;
 	}
 
+	private void addErrorToMap(Map<String, String> fieldErrors, FieldError error) {
+		if (fieldErrors.containsKey(error.getField())) {
+			String err = fieldErrors.get(error.getField()) + ", " + error.getCode();
+			fieldErrors.put(error.getField(), err);
+		} else {
+			fieldErrors.put(error.getField(), error.getCode());
+		}
+	}
 }
