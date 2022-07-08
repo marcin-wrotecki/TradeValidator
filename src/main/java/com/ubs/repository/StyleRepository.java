@@ -7,4 +7,5 @@ import com.ubs.model.Style;
 
 @Repository
 public interface StyleRepository extends JpaRepository<Style, Integer> {
+
 }
